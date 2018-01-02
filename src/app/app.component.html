@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-15">
+      <span>Bitcoin / BTC : {{BTC}} </span>
+      <span>Ethriam / ETH :{{ETH}}</span>
+      <span>Ripple / XRP : {{XRP}}</span>
+      <span> LTC : {{LTC}}</span>   
+      <span> GNT : {{GNT}}</span>
+      <span> BCH : {{BCH}}</span>
+      <span> MIOTA : {{MIOTA}}</span>
+      <span> OMG : {{OMG}}</span>
+    </div>
+  </div>
+</div>
+
+<hr>
+<input list="browsers"  [(ngModel)]="name"  (input) = "name = $event.target.value">
+<datalist id="browsers" >
+  <option *ngFor="let coin of coins" value={{coin}}>  
+</datalist>
+<input type="number" placeholder="min value"  [(ngModel)]="min" (input) = "min = $event.target.value"  name="min"/>
+<input type="number" placeholder="max value" [(ngModel)]="max" (input) = "max = $event.target.value" name="max"/>
+<input type="submit"(click)="startTrigger()">
+
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8" *ngFor="let coinRem of CoinReminder">
+      <span> {{coinRem.cointype}} </span>
+      <span>{{coinRem.min}} </span>
+      <span>{{coinRem.max}} </span>
+    </div>
+  </div>
+</div>
